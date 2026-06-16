@@ -7,9 +7,19 @@ export function createStore(initialState) {
   }
 
   function setState(partial) {
-    const next = typeof partial === "function" ? partial(state) : { ...state, ...partial }
-    state = next
-    for (const fn of listeners) fn(state)
+    const update =
+      typeof partial === "function"
+        ? partial(state)
+        : partial
+
+    state = {
+      ...state,
+      ...(update || {})
+    }
+
+    for (const fn of listeners) {
+      fn(state)
+    }
   }
 
   function subscribe(fn) {
@@ -17,6 +27,9 @@ export function createStore(initialState) {
     return () => listeners.delete(fn)
   }
 
-  return { getState, setState, subscribe }
+  return {
+    getState,
+    setState,
+    subscribe
+  }
 }
-
