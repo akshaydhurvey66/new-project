@@ -40,7 +40,14 @@ export async function loadFolderProject(dirHandle, onProgress) {
 
   let n = 0
   for await (const item of walkDir(dirHandle, "")) {
-    n += 1
+  if (
+    item.path.startsWith(".trae/") ||
+    item.path.includes("/.trae/")
+  ) {
+    continue
+  }
+
+  n += 1
     if (item.kind === "directory") {
       const parts = item.path.split("/").filter(Boolean)
       let cur = root
