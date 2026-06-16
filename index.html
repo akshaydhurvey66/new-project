@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Script Explorer & Editor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400,600,700&family=Recursive:wght@350;450;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
+    <link rel="stylesheet" href="/styles/app.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <button class="icon-btn" id="backBtn" type="button" aria-label="Back" disabled>
+          <span class="icon-btn__icon" aria-hidden="true">←</span>
+          <span class="icon-btn__label">Back</span>
+        </button>
+
+        <div class="header-title">
+          <div class="header-title__kicker" id="modeChip">No project</div>
+          <div class="header-title__title" id="viewTitle">Home</div>
+        </div>
+
+        <div class="header-meta" id="projectName"></div>
+      </header>
+
+      <main class="app-main" id="appMain" role="main"></main>
+
+      <nav class="app-nav" aria-label="Primary">
+        <button class="nav-btn" type="button" data-nav="home">
+          <span class="nav-btn__label">Home</span>
+        </button>
+        <button class="nav-btn" type="button" data-nav="single">
+          <span class="nav-btn__label">Single Script</span>
+        </button>
+        <button class="nav-btn" type="button" data-nav="multi">
+          <span class="nav-btn__label">Multi File</span>
+        </button>
+        <button class="nav-btn" type="button" data-nav="all">
+          <span class="nav-btn__label">All Files</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="toast-host" id="toastHost" aria-live="polite" aria-relevant="additions"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>
+
